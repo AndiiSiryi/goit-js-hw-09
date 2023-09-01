@@ -54,7 +54,8 @@ function startCountdown(countdown) {
 
   const intervalId = setInterval(() => {
     countdown.seconds--;
-
+    inputDatePicker.disabled = true;
+    startButton.disabled = true;
     if (countdown.seconds < 0) {
       countdown.seconds = 59;
       countdown.minutes--;
@@ -70,7 +71,8 @@ function startCountdown(countdown) {
           if (countdown.days < 0) {
             clearInterval(intervalId);
               updateDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-              return;
+            inputDatePicker.disabled = false;
+      return;
           }
         }
       }
